@@ -43,7 +43,7 @@ class Bird:
         self.x = x
         self.y = y
         self.tilt = 0  # degrees to tilt
-        self.tick_count = 0
+        self.tick_count = 0 #how many frames moved
         self.vel = 0
         self.height = self.y
         self.img_count = 0
@@ -266,7 +266,7 @@ def draw_window(win, birds, pipes, base, score, gen, pipe_ind):
     """
     if gen == 0:
         gen = 1
-    win.blit(bg_img, (0,0))
+    win.blit(bg_img, (0,0)) #blit is drawing the window in which the game is running
 
     for pipe in pipes:
         pipe.draw(win)
@@ -406,7 +406,7 @@ def run(config_file):
     """
     config = neat.config.Config(neat.DefaultGenome, neat.DefaultReproduction,
                          neat.DefaultSpeciesSet, neat.DefaultStagnation,
-                         config_file)
+                         config_file) #to setup config file
 
     # Create the population, which is the top-level object for a NEAT run.
     p = neat.Population(config)
@@ -428,6 +428,6 @@ if __name__ == '__main__':
     # Determine path to configuration file. This path manipulation is
     # here so that the script will run successfully regardless of the
     # current working directory.
-    local_dir = os.path.dirname(__file__)
+    local_dir = os.path.dirname(__file__) #used the directory in which i have placed the config file
     config_path = os.path.join(local_dir, 'config-feedforward.txt')
     run(config_path)
